@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SnakeGame</title>
+<!--    <link rel="stylesheet" href="./static/css/style.css">-->
+    <style>
+         body{
+             background-image: url("https://cdn2.vectorstock.com/i/1000x1000/46/86/snake-icon-in-modern-minimalist-style-flat-trend-vector-8484686.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center center;
+             background-size: cover;
+        }
+
+        span{
+             text-align: center;
+             color: gray;
+             font-size: 48px;
+             background-color: #e0e0e0;
+             border-radius: 12px;
+             margin: 30% 30%;
+        }
+
+        a {
+            border-radius: 12px;
+            background-color: #AAAAAA;
+            font-size: 48px;
+            color: white;
+            text-decoration: none;
+            width: 48px;
+            margin: 30% 30%;
+        }
+
+        a:hover{
+            background-color: #606060;
+            color: white;
+            font-size: 52px;
+            border: #000000;
+        }
+    </style>
+</head>
+<body>
+<!--        <div th:replace="fragments/navbar"/>-->
+    <div>
+
+        <span>Welcome to the snake game</span>
+        <p></p>
+        <span>you should login or register</span>
+        <p></p>
+        <span>to continue.</span>
+        <p></p>
+        <a class="nav-link" href="/login"> Login</a>
+        <p></p>
+        <a class="nav-link" href="/register">Register</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+
+
+li {
+   display: inline;
+}
+
+li a {
+   float: left;
+   background-color: #808080;
+}

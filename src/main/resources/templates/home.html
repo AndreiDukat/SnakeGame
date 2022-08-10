@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SnakeGame</title>
+    <!--    <link rel="stylesheet" href="./static/css/style.css">-->
+    <style>
+         body{
+             background-image: url("https://cdn2.vectorstock.com/i/1000x1000/46/86/snake-icon-in-modern-minimalist-style-flat-trend-vector-8484686.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center center;
+             background-size: cover;
+        }
+
+        span{
+             text-align: center;
+             color: gray;
+             font-size: 48px;
+             background-color: #e0e0e0;
+             border-radius: 12px;
+        }
+
+        .play-button{
+            border-radius:100%;
+            background-color: #AAAAAA;
+            font-size: 72px;
+            color: white;
+            text-decoration: none;
+            border: none
+        }
+
+        .play-button:hover{
+            background-color: #606060;
+            font-size: 80px;
+            color: white;
+            text-decoration: none;
+            border: solid white;
+        }
+
+        .center {
+         margin: 0% 45%;
+         position: absolute;
+         top: 50%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+        }
+
+        .leaderboard{
+          font-size: 24px;
+          margin: 0% 85%;
+          border: solid gray;
+          border-radius: 12px;
+        }
+        .leaderboard thead td{
+            background-color: #e0e0e0;
+            border: solid gray;
+            border-radius: 12px;
+        }
+
+        .leaderboard tbody tr{
+            background-color: #c0c0c0;
+            border: solid black;
+        }
+        .leaderboard tbody td{
+            border-radius: 12px;
+        }
+        .leaderboard tbody .leaderboard-number{
+          background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragments/navbar"/>
+
+    <span>Welcome <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getUsername()}"></span>.</span>
+
+    <div class="center">
+        <a class="play-button" href="/game">Play</a>
+    </div>
+
+    <table class="leaderboard" th:object="${top10Players}">
+        <caption>Leaderboard</caption>
+        <thead>
+        <tr>
+            <td>№</td>
+            <td>Username</td>
+            <td>Best score</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="player: ${top10Players}">
+            <td class="leaderboard-number" th:text="${top10Players.indexOf(player) + 1}"/>
+            <td th:text="${player.getUsername()}"/>
+            <td th:text="${player.getBestScore()}"/>
+
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
