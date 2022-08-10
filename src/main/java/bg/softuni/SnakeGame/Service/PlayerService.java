@@ -29,7 +29,7 @@ public class PlayerService {
         }
         Optional<Player> playerOptional = this.playerRepository.findByPassword(playerRegisterDTO.getPassword());
 
-        if (playerOptional.isEmpty()) {
+        if (!playerOptional.isPresent()) {
 
             Player player = new Player(
                     playerRegisterDTO.getUsername(),
@@ -51,7 +51,7 @@ public class PlayerService {
         Optional<Player> playerOptional = this.playerRepository.findByUsernameAndPassword(
                 playerLoginDTO.getUsername(), playerLoginDTO.getPassword());
 
-        if (playerOptional.isEmpty()) {
+        if (!playerOptional.isPresent()) {
             return false;
         }
 
@@ -84,7 +84,7 @@ public class PlayerService {
 
         Player player = new Player();
 
-        if(playerOptional.isPresent()) {
+        if(!playerOptional.isEmpty()) {
             player = playerOptional.get();
         }
 
