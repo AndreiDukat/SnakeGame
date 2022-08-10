@@ -84,7 +84,7 @@ public class PlayerService {
 
         Player player = new Player();
 
-        if(!playerOptional.isEmpty()) {
+        if(playerOptional.isPresent()) {
             player = playerOptional.get();
         }
 
