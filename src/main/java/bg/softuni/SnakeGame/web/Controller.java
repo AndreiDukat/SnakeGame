@@ -6,9 +6,6 @@ import bg.softuni.SnakeGame.models.DTO.PlayerRegisterDTO;
 import bg.softuni.SnakeGame.models.entity.Player;
 import bg.softuni.SnakeGame.models.exception.PlayerNotLoggedException;
 import bg.softuni.SnakeGame.session.LoggedPlayer;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.google.gson.Gson;
-import org.apache.tomcat.util.json.JSONParser;
 import org.json.JSONObject;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +37,7 @@ public class Controller {
     public LoggedPlayer initLoggedPlayer() {
         return getLoggedPlayer();
     }
+
     @ModelAttribute("playerLoginDTO")
     public PlayerLoginDTO initLoginDTO(){
         return new PlayerLoginDTO();
