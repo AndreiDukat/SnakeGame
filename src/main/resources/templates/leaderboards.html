@@ -1,0 +1,113 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Leaderboards</title>
+
+    <style>
+        body{
+             background-image: url("https://cdn2.vectorstock.com/i/1000x1000/46/86/snake-icon-in-modern-minimalist-style-flat-trend-vector-8484686.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center center;
+             background-size: cover;
+        }
+
+        .container {
+            padding: 16px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 12px;
+            opacity: 0.9;
+        }
+         .easy-difficulty-button{
+            border: none;
+            border-radius: 5px;
+            background-color: #66ff66;
+            text-decoration: none;
+            font-size: 24px;
+            color: #006600;
+        }
+
+        .easy-difficulty-button:hover{
+            border: 1px solid gray;
+            color: #006600;
+            background-color: #66ff66;
+            font-size: 32px;
+        }
+        .normal-difficulty-button{
+            border: none;
+            border-radius: 5px;
+            background-color: #6666ff;
+            text-decoration: none;
+            font-size: 24px;
+            color: #000066;
+        }
+
+        .normal-difficulty-button:hover{
+            border: 1px solid gray;
+            color: #000066;
+            background-color: #6666ff;
+            font-size: 32px;
+        }
+        .hard-difficulty-button{
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6666;
+            text-decoration: none;
+            font-size: 24px;
+            color: #990000;
+        }
+
+        .hard-difficulty-button:hover{
+            border: 1px solid gray;
+            color: #990000;
+            background-color: #ff6666;
+            font-size: 32px;
+        }
+
+        .games-count-button{
+            border: none;
+            border-radius: 5px;
+            background-color: #AAAAAA;
+            text-decoration: none;
+            font-size: 24px;
+            color: white;
+        }
+
+         .games-count-button:hover{
+            background-color: #606060;
+            color: white;
+            padding: 2px 16px;
+            border: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <div th:replace="fragments/navbar">Navbar</div>
+
+    <div class="container">
+        <h1>Leaderboards</h1>
+
+        <a class="easy-difficulty-button" href="/leaderboards/easy">
+            Easy difficulty
+        </a>
+        <p></p>
+        <a class="normal-difficulty-button" href="/leaderboards/normal">
+            Normal difficulty
+        </a>
+        <p></p>
+        <a class="hard-difficulty-button" href="/leaderboards/hard">
+            Hard difficulty
+        </a>
+        <p></p>
+        <a class="games-count-button" href="/leaderboards/count">
+            Games count
+        </a>
+    </div>
+</body>
+</html>

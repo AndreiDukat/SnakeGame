@@ -1,0 +1,162 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Settings</title>
+    <style>
+        body{
+             background-image: url("https://cdn2.vectorstock.com/i/1000x1000/46/86/snake-icon-in-modern-minimalist-style-flat-trend-vector-8484686.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center center;
+             background-size: cover;
+        }
+        span{
+             text-align: center;
+             color: gray;
+             font-size: 48px;
+             background-color: #e0e0e0;
+             border-radius: 12px;
+             opacity: 0.9;
+        }
+         .top-center {
+         margin: 0% 45%;
+         position: absolute;
+         top: 10%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+        }
+        .container {
+            padding: 16px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 12px;
+            opacity: 0.9;
+        }
+
+        select{
+            border: none;
+            border-radius: 12px;
+            background-color: #c0c0c0;
+            font-size: 24px;
+        }
+
+        .green-option{
+            border: none;
+            border-radius: 5px;
+            font-color: #009900;
+            background-color: #66ff66;
+        }
+         .green-option:hover{
+            border: 1px solid gray;
+            font-color: #009900;
+            background-color: #66ff66;
+            font-size: 32px;
+        }
+        .blue-option{
+            border: none;
+            border-radius: 5px;
+            font-color: #0000cc;
+            background-color: #6666ff;
+        }
+        .blue-option:hover{
+            border: 1px solid gray;
+            font-color: #0000cc;
+            background-color: #6666ff;
+            font-size: 32px;
+        }
+        .red-option{
+            border: none;
+            border-radius: 5px;
+            font-color: #cc0000;
+            background-color: #ff0000;
+        }
+        .red-option:hover{
+            border: 1px solid gray;
+            font-color: #cc0000;
+            background-color: #ff0000;
+            font-size: 32px;
+        }
+
+        .back-button {
+            border-radius: 12px;
+            background-color: #AAAAAA;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            width: 48px;
+        }
+
+        .back-button:hover{
+            background-color: #606060;
+            color: white;
+            padding: 2px 16px;
+            border: #000000;
+        }
+    </style>
+
+    <script>
+
+            function changeDifficulty(event){
+                var difficultyString = document.getElementById("difficulty").value;
+
+                console.log(difficultyString)
+
+                fetch("/settings",
+                {
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({difficulty: difficultyString})
+                })
+                .then(function(res){ console.log(res) })
+                .catch(function(res){ console.log(res) });
+            }
+
+
+            function checkPlayerRole(){
+
+                let role = document.getElementById("hidden-span").textContent;
+
+                console.log(role);
+
+                if(role == 'ADMIN'){
+                    document.getElementById("change-username-div").hidden = false;
+                }else{
+                    document.getElementById("change-username-div").hidden = true;
+                }
+            }
+
+    </script>
+    </head>
+<body>
+    <div th:replace="fragments/navbar"/>
+
+    <span th:object="${loggedPlayer}" th:text="${loggedPlayer.getRole}" id="hidden-span" hidden></span>
+
+    <div class ="container">
+        <label for="difficulty">Select difficulty</label>
+        <p></p>
+        <select onchange="changeDifficulty()" id="difficulty">
+            <option class="blue-option" value="normal">normal</option>
+            <option class="green-option" value="easy">easy</option>
+            <option class="red-option" value="hard">hard</option>
+        </select>
+
+<!--        <a class="back-button" href="/home">Back</a>-->
+    </div>
+    <div th:object="${loggedPlayer}" class ="container" id="change-username-div">
+        <h1>You can change your username</h1>
+        <a class="back-button" href="/settings/change-username">Change username</a>
+    </div>
+
+    <script>
+        checkPlayerRole();
+    </script>
+</body>
+</html>

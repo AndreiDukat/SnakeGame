@@ -78,7 +78,7 @@
 
         var userName = document.getElementById('username').value;
 
-        if(userName.length<3 || userName.length>10){
+        if(userName.length<3 || userName.length>20){
             document.getElementById('warnUserName').style.visibility ='visible';
 
         } else {
@@ -88,11 +88,25 @@
         }
     }
 
+        function checkEmail(){
+
+        var email = document.getElementById('email').value;
+
+        if(email.length<3 || email.length>20){
+            document.getElementById('warnEmail').style.visibility ='visible';
+
+        } else {
+            document.getElementById('warnEmail').style.visibility ='hidden';
+
+
+        }
+    }
+
         function checkPassword(){
 
         var password = document.getElementById('password').value;
 
-        if(password.length<3 || password.length>10){
+        if(password.length<3 || password.length>20){
             document.getElementById('warnPassword').style.visibility ='visible';
 
         } else {
@@ -125,7 +139,9 @@
             th:method="post"
             th:object="${playerRegisterDTO}"
             class="container">
+
           <h1>Register</h1>
+
         <div class="form-group row">
             <label for="username" class="input-label">Username</label>
             <div class="col-sm-10">
@@ -143,6 +159,25 @@
                 </p>
             </div>
         </div>
+
+          <div class="form-group row">
+              <label for="email" class="input-label">Email</label>
+              <div class="col-sm-10">
+                  <input type="text"
+                         class="inout-field"
+                         id="email"
+                         aria-describedby="emailHelpInline"
+                         placeholder="Email"
+                         oninput="checkEmail()"
+                         th:field="*{email}"
+                         th:errorClass="is-invalid">
+                  <p id="warnEmail" class="input-error"
+                     style="visibility: hidden;">
+                      Email length must be between 3 and 20 characters.
+                  </p>
+              </div>
+          </div>
+
         <div class="form-group row">
             <label for="password" class="input-label">Password</label>
             <div class="col-sm-10">

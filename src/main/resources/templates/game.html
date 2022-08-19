@@ -104,7 +104,7 @@
     }
         initSnakeHead();
         generateApple();
-        console.log(gameField);
+        //console.log(gameField);
     }
 
     function GameField(){
@@ -388,12 +388,29 @@ function gameOver(){
 
 async function play(){
 
+    let difficulty = '[[${loggedPlayer.getDifficulty}]]';
+
+    //console.log(difficulty);
+
+    let timeout = 200;
+
+    if(difficulty == 'EASY'){
+        timeout = 500;
+    }
+    if(difficulty == 'NORMAL'){
+        timeout = 200;
+    }
+    if(difficulty == 'HARD'){
+        timeout = 100;
+    }
+
+
     printTable();
 
     while(!gameField.isGameOver){
         move();
         updateTable();
-        await delay(200);
+        await delay(timeout);
     }
     gameOver();
 
@@ -425,8 +442,8 @@ function processKeyPress(event){
     </script>
 </head>
 <body>
+<span>Difficulty <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getDifficulty()}"></span></span>
 <div id="showTable"></div>
-<!--<div th:replace="fragments/navbar"/>-->
 <h4>You should change your language to english and use keys w, a, s, d on the keyboard to control the snake.</h4>
 
 <script>

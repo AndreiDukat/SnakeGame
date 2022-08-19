@@ -1,0 +1,69 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+
+    <style>
+        body{
+             background-image: url("https://cdn2.vectorstock.com/i/1000x1000/46/86/snake-icon-in-modern-minimalist-style-flat-trend-vector-8484686.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center center;
+             background-size: cover;
+        }
+
+        .container {
+            padding: 16px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 12px;
+            opacity: 0.9;
+        }
+         .back-button {
+            border-radius: 12px;
+            background-color: #AAAAAA;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            width: 48px;
+        }
+
+        .back-button:hover{
+            background-color: #606060;
+            color: white;
+            padding: 2px 16px;
+            border: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragments/navbar"/>
+
+    <div th:object="${loggedPlayer}"class="container">
+        <span>Username: <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getUsername()}"></span></span>
+        <p></p>
+        <span>Email: <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getEmail()}"></span></span>
+        <p></p>
+        <span>Role: <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getRole()}"></span></span>
+        <p></p>
+        <span>Games count: <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getGamesCount()}"></span></span>
+        <p></p>
+        <span>Average score: <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getAverageScore()}"></span></span>
+        <p></p>
+        <span>Best score on easy difficulty:
+            <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getEasyBestScore()}"></span></span>
+        <p></p>
+        <span>Best score on normal difficulty:
+            <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getNormalBestScore()}"></span></span>
+        <p></p>
+        <span>Best score on hard difficulty:
+            <span th:object="${loggedPlayer}" th:text ="${loggedPlayer.getHardBestScore()}"></span></span>
+    </div>
+
+    <a class="back-button" href="/home">Back</a>
+</body>
+</html>

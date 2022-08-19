@@ -20,7 +20,7 @@
             margin-right: 5px
         }
 
-        li a {
+        li .nav-link {
             border-radius: 12px;
             background-color: #AAAAAA;
             font-size: 24px;
@@ -29,17 +29,61 @@
             width: 48px;
         }
 
-        li a:hover{
+        li .nav-link:hover{
             background-color: #606060;
             color: white;
             padding: 2px 16px;
             border: #000000;
         }
-
         li .home{
             font-size: 32px;
+            border-radius: 12px;
+            background-color: #AAAAAA;
+            color: white;
+            text-decoration: none;
+            width: 48px;
         }
+        li .home:hover{
+            background-color: #606060;
+            color: white;
+            padding: 2px 16px;
+            border: #000000;
+        }
+        img {
+            max-width: 2%;
+            height: auto;
+            opacity: 0.3;
+        }
+
+        img:hover {
+            max-width: 2.25%;
+        }
+
+        #settings-li{
+            margin-left; 100px;
+        }
+        .empty-space{
+            display: inline;
+            opacity: 0;
+            margin-right: 5px
+            text-align: center;
+            font-size: 48px;
+        }
+
+
     </style>
+
+<!--    <script>-->
+
+<!--        let arr = document.querySelectorAll("a");-->
+
+<!--        for(let i = 0; i < arr.length; i++){-->
+<!--            if(arr[i].href == window.location.href){-->
+<!--                arr[i].remove();-->
+<!--            }-->
+<!--        }-->
+
+<!--    </script>-->
 </head>
 <body>
 
@@ -48,22 +92,45 @@
             <ul class="navbar-nav mr-auto">
 
 
-                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged() == true}" class="nav-item">
+                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged()}" class="nav-item">
                     <a class="home" href="/home"> Home</a>
                 </li>
 
-                <li class="nav-item">
+                <li th:object="${loggedPlayer}" th:if="${!loggedPlayer.isLogged()}" class="nav-item">
                     <a class="nav-link" href="/register">Register</a>
                 </li>
 
-                <li class="nav-item">
+                <li  th:object="${loggedPlayer}" th:if="${!loggedPlayer.isLogged()}"class="nav-item">
                     <a class="nav-link" href="/login"> Login</a>
                 </li>
-
-                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged() == true}" class="nav-item">
+                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged()}" class="nav-item">
                     <a class="nav-link" href="/logout"> Logout</a>
                 </li>
+                <span class="empty-space">
+                    _______________________________________________
+                </span>
+                </li>
 
+                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged()}"
+                    class="img-li" id="settings-li">
+                    <a href="/settings">
+                        <img src="https://www.kindpng.com/picc/m/1-12279_transparent-android-settings-icon-png-icon-png-setting.png">
+                    </a>
+                </li>
+
+                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged()}"
+                    class="img-li" id="profile-li">
+                    <a href="/profile">
+                        <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-default-avatar-profile-icon-vector-social-media-user-image-vector-illustration-227787227.jpg">
+                    </a>
+                </li>
+
+                <li th:object="${loggedPlayer}" th:if="${loggedPlayer.isLogged()}"
+                    class="img-li" id="leaderboards-li">
+                    <a  href="/leaderboards">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgzRXVa3gu44SOf3_qfw4kBso8IWnJgfE4gg&usqp=CAU">
+                    </a>
+                </li>
 
             </ul>
         </div>

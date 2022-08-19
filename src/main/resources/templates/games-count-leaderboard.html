@@ -1,0 +1,87 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Games count leaderboard</title>
+    <style>
+        body{
+             background-image: url("https://cdn2.vectorstock.com/i/1000x1000/46/86/snake-icon-in-modern-minimalist-style-flat-trend-vector-8484686.jpg");
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-position: center center;
+             background-size: cover;
+        }
+
+        .leaderboard{
+          font-size: 48px;
+          border: solid gray;
+          border-radius: 12px;
+          opacity: 0.9;
+        }
+        .leaderboard thead td{
+            background-color: #e0e0e0;
+            border: solid gray;
+            border-radius: 12px;
+        }
+
+        .leaderboard tbody tr{
+            background-color: #c0c0c0;
+            border: solid black;
+        }
+        .leaderboard tbody td{
+            border-radius: 12px;
+        }
+        .leaderboard tbody .leaderboard-number{
+          background-color: white;
+        }
+        .center {
+         margin: -10% 35%;
+         position: absolute;
+         top: 50%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+        }
+
+        caption{
+            background-color: #c0c0c0;
+            border-radius: 12px;
+        }
+        .easy-span{
+            color:  #66ff66;
+        }
+        .normal-span{
+            color:  #6666ff;
+        }
+        .hard-span{
+            color:  #ff6666;
+        }
+
+    </style>
+</head>
+<body>
+<div th:replace="fragments/navbar">Navbar</div>
+<div class="center">
+    <table class="leaderboard" th:object="${top10CountPlayers}">
+        <caption>Games count leaderboard</caption>
+        <thead>
+        <tr>
+            <td>№</td>
+            <td>Username</td>
+            <td>Count</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="player: ${top10CountPlayers}">
+            <td class="leaderboard-number" th:text="${top10CountPlayers.indexOf(player) + 1}"/>
+            <td th:text="${player.getInfo().getUsername()}"/>
+            <td th:text="${player.getStats().getGamesCount()}"/>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
