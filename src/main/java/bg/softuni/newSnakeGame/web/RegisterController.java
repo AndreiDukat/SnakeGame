@@ -1,7 +1,7 @@
 package bg.softuni.newSnakeGame.web;
 
 import bg.softuni.newSnakeGame.model.DTO.PLayerRegisterDTO;
-import bg.softuni.newSnakeGame.model.service.RegisterService;
+import bg.softuni.newSnakeGame.service.RegisterService;
 import bg.softuni.newSnakeGame.session.LoggedPlayer;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

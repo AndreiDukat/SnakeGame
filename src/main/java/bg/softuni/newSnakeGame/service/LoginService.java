@@ -1,4 +1,4 @@
-package bg.softuni.newSnakeGame.model.service;
+package bg.softuni.newSnakeGame.service;
 
 import bg.softuni.newSnakeGame.model.DTO.PlayerLoginDTO;
 import bg.softuni.newSnakeGame.model.entity.Info;

@@ -1,4 +1,4 @@
-package bg.softuni.newSnakeGame.model.service;
+package bg.softuni.newSnakeGame.service;
 
 import bg.softuni.newSnakeGame.model.entity.Player;
 import bg.softuni.newSnakeGame.model.entity.Stats;

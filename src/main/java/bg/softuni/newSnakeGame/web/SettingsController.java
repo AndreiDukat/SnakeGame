@@ -2,8 +2,7 @@ package bg.softuni.newSnakeGame.web;
 
 import bg.softuni.newSnakeGame.exception.PlayerNotLoggedException;
 import bg.softuni.newSnakeGame.model.DTO.ChangeUsernameDTO;
-import bg.softuni.newSnakeGame.model.DTO.PlayerLoginDTO;
-import bg.softuni.newSnakeGame.model.service.SettingsService;
+import bg.softuni.newSnakeGame.service.SettingsService;
 import bg.softuni.newSnakeGame.session.LoggedPlayer;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
 package bg.softuni.newSnakeGame.web;
 
 import bg.softuni.newSnakeGame.exception.PlayerNotLoggedException;
-import bg.softuni.newSnakeGame.model.service.GameService;
+import bg.softuni.newSnakeGame.service.GameService;
 import bg.softuni.newSnakeGame.session.LoggedPlayer;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;

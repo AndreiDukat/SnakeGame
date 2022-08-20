@@ -2,7 +2,7 @@ package bg.softuni.newSnakeGame.web;
 
 import bg.softuni.newSnakeGame.exception.PlayerNotLoggedException;
 import bg.softuni.newSnakeGame.model.entity.Player;
-import bg.softuni.newSnakeGame.model.service.LeaderBoardService;
+import bg.softuni.newSnakeGame.service.LeaderBoardService;
 import bg.softuni.newSnakeGame.session.LoggedPlayer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

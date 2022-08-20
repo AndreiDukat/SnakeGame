@@ -1,4 +1,4 @@
-package bg.softuni.newSnakeGame.model.service;
+package bg.softuni.newSnakeGame.service;
 
 import bg.softuni.newSnakeGame.model.DTO.ChangeUsernameDTO;
 import bg.softuni.newSnakeGame.model.emuns.GameDifficultyEnum;

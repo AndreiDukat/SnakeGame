@@ -1,10 +1,8 @@
 package bg.softuni.newSnakeGame.web;
 
-import bg.softuni.newSnakeGame.model.DTO.PLayerRegisterDTO;
 import bg.softuni.newSnakeGame.model.DTO.PlayerLoginDTO;
-import bg.softuni.newSnakeGame.model.service.LoginService;
+import bg.softuni.newSnakeGame.service.LoginService;
 import bg.softuni.newSnakeGame.session.LoggedPlayer;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
